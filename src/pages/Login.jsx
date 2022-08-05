@@ -40,6 +40,7 @@ class Login extends React.Component {
 
   render() {
     const { name, gravatarEmail, btnDisable } = this.state;
+    const { history } = this.props;
     return (
       <main>
         <form>
@@ -72,6 +73,13 @@ class Login extends React.Component {
             data-testid="btn-play"
           >
             Play
+          </button>
+          <button
+            type="button"
+            onClick={ () => history.push('/settings') }
+            data-testid="btn-settings"
+          >
+            Settings
           </button>
         </form>
       </main>

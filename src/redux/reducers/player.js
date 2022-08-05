@@ -1,7 +1,7 @@
 import { LOGIN } from '../actions';
 
 const INITIAL_STATE = ({
-  name: '',
+  name: 'joao',
   assertions: 0,
   score: 0,
   gravatarEmail: '',

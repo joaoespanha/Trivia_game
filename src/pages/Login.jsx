@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
+import { login } from '../redux/actions';
 
 class Login extends React.Component {
   constructor() {
@@ -21,7 +24,9 @@ class Login extends React.Component {
   }
 
   handleClick = () => {
-    console.log('BRASIL');
+    const { gravatarEmail, name } = this.state;
+    const { saveUser } = this.props;
+    saveUser({ name, gravatarEmail });
   }
 
   render() {
@@ -65,4 +70,12 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  saveUser: PropTypes.func,
+}.isRequired;
+
+const mapDispatchToProps = (dispatch) => ({
+  saveUser: (userData) => dispatch(login(userData)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
